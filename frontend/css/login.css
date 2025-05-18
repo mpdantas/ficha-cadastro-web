@@ -1,0 +1,103 @@
+/* Estilos gerais para a página de login */
+body {
+    font-family: sans-serif; /* Define a fonte padrão */
+    background-color: #f0f0f0; /* Cor de fundo da página de login */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 20px; /* Adiciona um pequeno padding */
+}
+
+/* Estilos para o container do formulário de login */
+.container {
+    background-color: #fff; /* Fundo branco para o container */
+    padding: 30px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 350px; /* Largura fixa do container */
+    display: flex; /* Usa flexbox para organizar os itens internos */
+    flex-direction: column; /* Organiza os filhos (header e form) em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente dentro do container */
+}
+
+/* Estilos para o header da página de login */
+.login-header {
+    text-align: center; /* Centraliza o texto dentro do header */
+    margin-bottom: 30px; /* Adiciona espaço abaixo do header */
+    width: 100%; /* Garante que o header ocupe a largura total do container */
+}
+
+/* Estilos para a imagem do logo */
+.login-header img {
+    max-width: 80px; /* Define uma largura máxima para o logo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 15px; /* Adiciona espaço abaixo da imagem */
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    margin-left: auto; /* Centraliza a imagem */
+    margin-right: auto; /* Centraliza a imagem */
+}
+
+/* Estilos para o título "Login" */
+.login-header h1 {
+    margin-bottom: 0; /* Remove a margem inferior padrão do h1 */
+    color: #333; /* Cor do texto do título */
+}
+
+/* Estilos para o formulário de login */
+#loginForm {
+    width: 100%; /* Garante que o formulário ocupe a largura total do container */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaço abaixo de cada grupo de formulário */
+}
+
+label {
+    display: block; /* Faz a label ocupar toda a largura disponível */
+    margin-bottom: 5px; /* Espaço abaixo da label */
+    color: #555; /* Cor do texto da label */
+    font-weight: bold; /* Texto da label em negrito */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Faz o input ocupar toda a largura do container */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 4px; /* Bordas arredondadas */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+button[type="submit"] {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto branco */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Altera o cursor ao passar por cima */
+    font-size: 16px; /* Tamanho da fonte */
+    width: 100%; /* Faz o botão ocupar toda a largura do container */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para o hover */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Cor de fundo azul mais escura no hover */
+}
+
+/* ... outros estilos do login.css ... */
+
+/* Estilos para o footer da página de login */
+.login-footer {
+    text-align: center; /* Centraliza o texto do rodapé */
+    margin-top: 30px; /* Adiciona um espaço acima do rodapé para separá-lo do formulário */
+    padding: 10px 0; /* Adiciona um pequeno espaçamento vertical */
+    font-size: 0.9em; /* Define um tamanho de fonte menor */
+    color: #777; /* Define uma cor de texto cinza mais clara */
+    border-top: 1px solid #eee; /* Adiciona uma linha sutil na parte superior do rodapé */
+    width: 100%; /* Garante que o rodapé ocupe a largura total do container */
+}
+
+/* ... outros estilos do login.css ... */

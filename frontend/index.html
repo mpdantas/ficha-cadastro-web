@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Cadastro</title>
+    <link rel="stylesheet" href="css/style.css"> </head>
+<body>
+    <div class="container"> <h1>Ficha de Cadastro de Cliente</h1> 
+        <form id="cadastroForm"> <fieldset> <legend>Dados Pessoais</legend> 
+            <div class="form-group"> <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+             </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required> </div>
+
+                <div class="form-group">
+                    <label for="cnh">CNH:</label>
+                    <input type="text" id="cnh" name="cnh"> </div>
+
+                <div class="form-group">
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="dataNascimento" name="dataNascimento" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required> 
+                </div>
+            </fieldset>
+
+            <fieldset> <legend>Endereço</legend> <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required> 
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required> 
+                </div>
+            </fieldset>
+
+            <fieldset> <legend>Informações do Seguro</legend> <div class="form-group">
+                    <label for="modalidadeSeguro">Modalidade do Seguro:</label>
+                    <select id="modalidadeSeguro" name="modalidadeSeguro" required> 
+                        <option value="">Selecione</option>
+                        <option value="auto">Auto</option>
+                        <option value="vida">Vida</option>
+                        <option value="residencia">Residência</option>
+                        <option value="empresa">Empresa</option>
+                        <option value="portatil">Equipamento portátil</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoSeguro">Tipo do Seguro:</label>
+                    <select id="tipoSeguro" name="tipoSeguro" required> 
+                        <option value="">Selecione</option>
+                        <option value="novo">Seguro Novo</option>
+                        <option value="renovacao">Renovação</option>
+                    </select>
+                </div>
+
+                <div id="camposAuto" class="modalidade-campos" style="display: none;">
+                    <h3>Seguro Auto</h3>
+                    <div class="form-group">
+                        <label for="marcaAuto">Marca do Veículo:</label>
+                        <select id="marcaAuto" name="marcaAuto">
+                            <option value="">Selecione a Marca</option>
+                            <option value="volkswagen">Volkswagen</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="ford">Ford</option>
+                            <option value="hyundai">Hyundai</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                            <option value="renault">Renault</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modeloAuto">Modelo do Veículo:</label>
+                        <input type="text" id="modeloAuto" name="modeloAuto">
+                    </div>
+                    <div class="form-group">
+                        <label for="modeloAuto">Ano Fabricação:</label>
+                        <input type="text" id="modeloAuto" name="modeloAuto">
+                    </div>
+                    <div class="form-group">
+                        <label for="placaAuto">Placa:</label>
+                        <input type="text" id="placaAuto" name="placaAuto">
+                    </div>
+                    <div class="form-group">
+                        <label for="modeloAuto">Chassi:</label>
+                        <input type="text" id="modeloAuto" name="modeloAuto">
+                    </div>
+                    <div class="form-group">
+                        <label for="modeloAuto">Renavam:</label>
+                        <input type="text" id="modeloAuto" name="modeloAuto">
+                    </div>
+                    </div>
+
+                <div id="camposVida" class="modalidade-campos" style="display: none;">
+                    <h3>Seguro Vida</h3>
+                    <div class="form-group">
+                        <label for="beneficiarioVida">Beneficiário:</label>
+                        <input type="text" id="beneficiarioVida" name="beneficiarioVida">
+                    </div>
+                    </div>
+
+                <div id="camposResidencia" class="modalidade-campos" style="display: none;">
+                    <h3>Seguro Residência</h3>
+                    <div class="form-group">
+                        <label for="tipoResidencia">Tipo de Residência:</label>
+                        <input type="text" id="tipoResidencia" name="tipoResidencia">
+                    </div>
+                    </div>
+
+                <div id="camposEmpresa" class="modalidade-campos" style="display: none;">
+                    <h3>Seguro Empresa</h3>
+                    <div class="form-group">
+                        <label for="cnpjEmpresa">CNPJ:</label>
+                        <input type="text" id="cnpjEmpresa" name="cnpjEmpresa">
+                    </div>
+                    </div>
+
+                <div id="camposPortatil" class="modalidade-campos" style="display: none;">
+                    <h3>Seguro Equipamento Portátil</h3>
+                    <div class="form-group">
+                        <label for="tipoEquipamento">Tipo de Equipamento:</label>
+                        <input type="text" id="tipoEquipamento" name="tipoEquipamento">
+                    </div>
+                    </div>
+            </fieldset>
+
+            <fieldset> <legend>Informações Adicionais</legend> <div class="form-group">
+                    <label for="indicacao">Quem indicou?</label>
+                    <input type="text" id="indicacao" name="indicacao"> </div>
+
+                <div class="form-group">
+                    <label for="dataPreenchimento">Data:</label>
+                    <input type="text" id="dataPreenchimento" name="dataPreenchimento" readonly> </div>
+            </fieldset>
+
+            <button type="button" onclick="gerarPDF()">Gerar PDF para Impressão</button>
+            <footer class="cadastro-footer">
+                <p>&copy; <span id="currentYear"></span> Todos os direitos reservados
+                <button type="button" onclick="window.location.href='login.html';" class="logout-button-fixed">Sair</button>
+                </p>
+            </footer>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script> </body>
+</html>

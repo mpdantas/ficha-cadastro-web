@@ -1,0 +1,155 @@
+/* Estilos gerais da página */
+body {
+    font-family: sans-serif; /* Define a fonte padrão do corpo da página */
+    background-color: #f4f4f4; /* Define uma cor de fundo cinza claro para a página */
+    display: flex; /* Utiliza flexbox para alinhar o conteúdo no centro da tela */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da viewport */
+    margin: 0; /* Remove as margens padrão do body */
+    padding: 20px; /* Adiciona um pequeno espaçamento interno ao redor do conteúdo */
+}
+
+/* Estilos do container principal da ficha */
+.container {
+    background-color: #fff; /* Define a cor de fundo branca para o container da ficha */
+    padding: 30px; /* Adiciona um espaçamento interno maior ao redor da ficha */
+    border-radius: 8px; /* Arredonda os cantos do container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra ao redor do container */
+    width: 80%; /* Define a largura do container para 80% da largura da tela */
+    max-width: 960px; /* Define uma largura máxima para o container em telas maiores */
+}
+
+/* Estilos do título principal */
+h1 {
+    text-align: center; /* Centraliza o texto do título */
+    color: #333; /* Define a cor do texto do título */
+    margin-bottom: 20px; /* Adiciona um espaço abaixo do título */
+}
+
+/* Estilos dos fieldsets (agrupamentos de campos) */
+fieldset {
+    border: 1px solid #ccc; /* Define uma borda cinza clara para os fieldsets */
+    padding: 15px; /* Adiciona um espaçamento interno aos fieldsets */
+    margin-bottom: 20px; /* Adiciona um espaço abaixo de cada fieldset */
+    border-radius: 4px; /* Arredonda os cantos dos fieldsets */
+}
+
+/* Estilos das legendas dos fieldsets */
+legend {
+    color: #555; /* Define a cor do texto da legenda */
+    padding: 5px 10px; /* Adiciona um pequeno espaçamento interno à legenda */
+    border: 1px solid #ccc; /* Define uma borda cinza clara para a legenda */
+    border-radius: 4px; /* Arredonda os cantos da legenda */
+    background-color: #f9f9f9; /* Define uma cor de fundo clara para a legenda */
+}
+
+/* Estilos dos grupos de formulário (label e input) */
+.form-group {
+    margin-bottom: 15px; /* Adiciona um espaço abaixo de cada grupo de formulário */
+    display: flex; /* Utiliza flexbox para alinhar label e input na mesma linha */
+    flex-direction: column; /* Organiza label e input em coluna em telas menores */
+}
+
+/* Estilos das labels (rótulos dos campos) */
+label {
+    display: block; /* Faz com que a label ocupe toda a largura disponível */
+    margin-bottom: 5px; /* Adiciona um pequeno espaço abaixo da label */
+    color: #333; /* Define a cor do texto da label */
+    font-weight: bold; /* Deixa o texto da label em negrito */
+}
+
+/* Estilos dos inputs (campos de entrada de texto, data, email) e selects (dropdowns) */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%; /* Faz com que os inputs e selects ocupem toda a largura do form-group */
+    padding: 10px; /* Adiciona um espaçamento interno aos inputs e selects */
+    border: 1px solid #ccc; /* Define uma borda cinza clara para os inputs e selects */
+    border-radius: 4px; /* Arredonda os cantos dos inputs e selects */
+    box-sizing: border-box; /* Garante que o padding e a borda não aumentem a largura total */
+    font-size: 16px; /* Define um tamanho de fonte adequado */
+}
+
+/* Estilos dos inputs e selects quando focados (selecionados) */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+select:focus {
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    border-color: #007bff; /* Altera a cor da borda para azul quando focado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona uma leve sombra de foco */
+}
+
+/* Estilos da área de campos dinâmicos (inicialmente escondida) */
+.modalidade-campos {
+    margin-top: 20px; /* Adiciona um espaço acima dos campos dinâmicos */
+    padding: 15px; /* Adiciona um espaçamento interno aos campos dinâmicos */
+    border: 1px solid #ddd; /* Define uma borda cinza mais clara */
+    border-radius: 4px; /* Arredonda os cantos da área de campos dinâmicos */
+    background-color: #f9f9f9; /* Define uma cor de fundo clara para a área */
+}
+
+/* Estilos do título dos campos dinâmicos */
+.modalidade-campos h3 {
+    color: #333; /* Define a cor do texto do título dos campos dinâmicos */
+    margin-top: 0; /* Remove a margem superior padrão do h3 */
+    margin-bottom: 10px; /* Adiciona um espaço abaixo do título */
+    border-bottom: 1px solid #eee; /* Adiciona uma linha sutil abaixo do título */
+    padding-bottom: 5px; /* Adiciona um pequeno espaçamento abaixo do título */
+}
+
+/* Estilos do botão de gerar PDF */
+button[type="button"] {
+    background-color: #007bff; /* Define a cor de fundo azul para o botão */
+    color: #fff; /* Define a cor do texto branco para o botão */
+    padding: 10px 20px; /* Adiciona um espaçamento interno ao botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    font-size: 16px; /* Define um tamanho de fonte adequado para o botão */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a mudança de cor */
+}
+
+/* Estilos do botão de gerar PDF ao passar o mouse */
+button[type="button"]:hover {
+    background-color: #0056b3; /* Escurece a cor de fundo do botão ao passar o mouse */
+}
+
+/* ... outros estilos ... */
+
+/* Estilos para o footer da ficha de cadastro */
+.cadastro-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #eee;
+    position: relative;
+}
+
+/* Estilos para o botão de Sair fixo no rodapé */
+.cadastro-footer .logout-button-fixed { /* Adicionamos '.cadastro-footer' para aumentar a especificidade */
+    background-color: #f44336; /* Cor de fundo vermelha */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 8px 15px; /* Espaçamento interno */
+    text-align: center; /* Texto centralizado */
+    text-decoration: none; /* Sem sublinhado */
+    display: inline-block; /* Comporta-se como inline, mas com largura e altura */
+    font-size: 14px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de mãozinha */
+    border-radius: 4px; /* Bordas arredondadas */
+    position: absolute; /* Fixa o botão em relação ao seu ancestral mais próximo com 'position: relative' */
+    bottom: 10px; /* Distância da parte inferior do rodapé */
+    right: 10px; /* Distância da parte direita do rodapé */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+}
+
+.cadastro-footer .logout-button-fixed:hover { /* Também atualizamos o hover */
+    background-color: #d32f2f; /* Vermelho mais escuro no hover */
+}
+
+/* ... outros estilos ... */
