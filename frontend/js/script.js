@@ -51,8 +51,17 @@ function mostrarCamposModalidade() {
 // Adiciona um ouvinte de evento para executar a função preencherDataPreenchimento quando a página for carregada
 // Adiciona um ouvinte de evento para executar funções quando a página for carregada
 window.onload = function() {
-    preencherDataPreenchimento(); // Certifique-se de que esta linha (ou suas equivalentes) esteja presente
-    atualizarAnoRodape(); // Chama a função para atualizar o ano do rodapé
+    preencherDataPreenchimento(); // Preenche a data de preenchimento
+    atualizarAnoRodape(); // Atualiza o ano no rodapé
+
+    const cpfInput = document.getElementById('cpf');
+    if (cpfInput) {
+        new Cleave(cpfInput, {
+            blocks: [3, 3, 3, 2],
+            delimiters: ['.', '.', '-'],
+            numericOnly: true
+        });
+    }
 };
 
 // Adiciona um ouvinte de evento para executar a função mostrarCamposModalidade sempre que o valor do dropdown de modalidade mudar
