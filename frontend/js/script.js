@@ -71,11 +71,11 @@ if (modalidadeSeguroSelect) { // Verifica se o elemento foi encontrado
 }
 
 // Função placeholder para a geração do PDF (a lógica real será no backend em Python)
-function gerarPDF() {
-    alert('Funcionalidade de gerar PDF será implementada no backend.');
+//function gerarPDF() {
+    //alert('Funcionalidade de gerar PDF será implementada no backend.');
     // Aqui, em um cenário real, você faria uma requisição para o seu backend Python
     // enviando os dados do formulário para que ele gere o PDF.
-}
+//}
 
 // Função para atualizar o ano no rodapé
 function atualizarAnoRodape() {

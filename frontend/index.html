@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css"> </head>
 <body>
     <div class="container"> <h1>Ficha de Cadastro de Cliente</h1> 
-        <form id="cadastroForm"> <fieldset> <legend>Dados Pessoais</legend> 
+        <form id="cadastroForm" action="{{ url_for('ficha') }}" method="post"> <fieldset> <legend>Dados Pessoais</legend> 
             <div class="form-group"> <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
              </div>
@@ -166,7 +166,7 @@
                     <input type="text" id="dataPreenchimento" name="dataPreenchimento" readonly> </div>
             </fieldset>
 
-            <button type="button" onclick="gerarPDF()">Gerar PDF para Impressão</button>
+            <button type="submit" class="submit-pdf-button">Gerar PDF para Impressão</button>
             <footer class="cadastro-footer">
                 <p>&copy; <span id="currentYear"></span> Todos os direitos reservados
                 <button type="button" onclick="window.location.href='login.html';" class="logout-button-fixed">Sair</button>

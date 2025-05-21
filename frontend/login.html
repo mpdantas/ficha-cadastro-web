@@ -13,7 +13,7 @@
             <h1>Ficha de Cadastro</h1>
         </header>
 
-        <form id="loginForm" onsubmit="window.location.href='index.html'; return false;"> <div class="form-group">
+        <form id="loginForm" action="{{ url_for('login') }}" method="post"> <div class="form-group">
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" required>
             </div>

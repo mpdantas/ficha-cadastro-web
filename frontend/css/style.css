@@ -100,8 +100,8 @@ select:focus {
     padding-bottom: 5px; /* Adiciona um pequeno espaçamento abaixo do título */
 }
 
-/* Estilos do botão de gerar PDF */
-button[type="button"] {
+/* Estilos para o botão de gerar PDF */
+.submit-pdf-button { /* Use a classe aqui */
     background-color: #007bff; /* Define a cor de fundo azul para o botão */
     color: #fff; /* Define a cor do texto branco para o botão */
     padding: 10px 20px; /* Adiciona um espaçamento interno ao botão */
@@ -113,7 +113,7 @@ button[type="button"] {
 }
 
 /* Estilos do botão de gerar PDF ao passar o mouse */
-button[type="button"]:hover {
+.submit-pdf-button:hover { /* Use a classe aqui */
     background-color: #0056b3; /* Escurece a cor de fundo do botão ao passar o mouse */
 }
 
