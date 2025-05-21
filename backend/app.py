@@ -5,7 +5,7 @@ app = Flask(__name__,
             static_folder=os.path.join('..', 'frontend'),  # Define a pasta para arquivos estáticos
             static_url_path='/',  # Define a URL para acessar os arquivos estáticos
             template_folder=os.path.join('..', 'frontend')) # Define a pasta para os templates HTML
-app.secret_key = 'chave_secreta_para_sessao'  # Substitua por uma chave secreta forte em produção
+app.secret_key = os.environ.get('SECRET_KEY', 'chave_secreta_padrao_dev')  # Substitua por uma chave secreta forte em produção
 
 # Usuários (simulação - para fins de teste apenas.  Use um banco de dados e hash de senha em produção)
 users = {
@@ -47,4 +47,4 @@ def ficha():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Inicia o servidor de desenvolvimento do Flask
+    app.run(debug=False)  # Inicia o servidor de desenvolvimento do Flask
