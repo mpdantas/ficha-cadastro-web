@@ -102,3 +102,44 @@ if (tipoSeguroSelect) {
 function gerarPDF() {
     alert('Funcionalidade de gerar PDF é controlada pelo backend agora.');
 }
+
+// ... (seu código existente: obterDataAtual, preencherDataPreenchimento, mostrarCamposModalidade, atualizarAnoRodape, window.onload, event listeners) ...
+
+// Função para buscar endereço por CEP usando a API ViaCEP
+function buscarEnderecoPorCep() {
+    const cepInput = document.getElementById('cep');
+    const enderecoInput = document.getElementById('endereco');
+    const bairroInput = document.getElementById('bairro');
+    const cidadeInput = document.getElementById('cidade');
+    const estadoInput = document.getElementById('estado');
+
+    // Limpa os campos de endereço enquanto a busca é realizada
+    enderecoInput.value = '';
+    bairroInput.value = '';
+    cidadeInput.value = '';
+    estadoInput.value = '';
+
+    let cep = cepInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos do CEP
+
+    // Verifica se o CEP tem 8 dígitos
+    if (cep.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`) // Faz a requisição à API ViaCEP
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => {
+                if (!data.erro) { // Verifica se a API retornou um erro
+                    enderecoInput.value = data.logradouro;
+                    bairroInput.value = data.bairro;
+                    cidadeInput.value = data.localidade;
+                    estadoInput.value = data.uf;
+                } else {
+                    alert('CEP não encontrado.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar CEP:', error);
+                alert('Erro ao buscar CEP. Verifique sua conexão ou tente novamente.');
+            });
+    } else if (cep.length > 0) {
+        alert('CEP inválido. Digite 8 dígitos.');
+    }
+}
