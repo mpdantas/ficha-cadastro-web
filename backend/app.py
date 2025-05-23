@@ -76,6 +76,20 @@ def ficha():
 
         # --- Início do Desenho do PDF ---
 
+         # --- Caminho para o Logo ---
+        logo_path = os.path.join(app.root_path, '..', 'frontend', 'imagens', 'logo.png')
+        logo_width = 50 # Ajuste a largura conforme necessário
+        logo_height = 40 # Ajuste a altura conforme necessário
+        logo_x = 50     # Posição X do canto inferior esquerdo do logo
+        logo_y = height - 10 - logo_height - 10 # Posição Y (calculada abaixo do título)
+
+        try:
+            p.drawImage(logo_path, logo_x, logo_y, width=logo_width, height=logo_height)
+        except Exception as e:
+            print(f"Erro ao carregar o logo: {e}")
+            print(f"Caminho do logo: {logo_path}")
+            # Em caso de erro, continua sem o logo
+
         # Título Principal
         p.setFont("Helvetica-Bold", 24)
         p.drawCentredString(width / 2.0, height - 50, "FICHA CADASTRAL")
