@@ -3,14 +3,14 @@ import os
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from io import BytesIO
-from reportlab.lib.units import cm # Importa unidades de medida (opcional, mas útil)
-from reportlab.lib import colors # Importa cores (opcional)
+from reportlab.lib.units import cm, mm
+from reportlab.lib import colors
 
 app = Flask(__name__,
             static_folder=os.path.join('..', 'frontend'),
             static_url_path='/',
             template_folder=os.path.join('..', 'frontend'))
-app.secret_key = 'chave_secreta_para_sessao' # Substitua por uma chave segura
+app.secret_key = 'chave_secreta_para_sessao'
 
 users = {
     'empresa': 'senha123'
@@ -56,14 +56,15 @@ def ficha():
             'Modalidade do Seguro': request.form.get('modalidadeSeguro'),
             'Tipo do Seguro': request.form.get('tipoSeguro'),
 
-            # Campos Específicos para Auto (mesmo que alguns estejam em linha, tratamos individualmente)
+            # Campos Específicos para Auto (coletados aqui, mesmo que não impressos todos)
             'Marca do Veículo': request.form.get('marcaAuto'),
-            'Modelo do Veículo': request.form.get('modeloAuto'),
+            'Modelo do Veículo': request.form.get('modeloVeiculoAuto'),
             'Ano Fabricação': request.form.get('anoFabricacaoAuto'),
             'Ano Modelo': request.form.get('anoModeloAuto'),
             'Placa': request.form.get('placaAuto'),
             'Chassi': request.form.get('chassiAuto'),
             'Renavam': request.form.get('renavamAuto'),
+            'Classe de Bônus': request.form.get('classeBonus'), # Novo campo
 
             # Informações Adicionais
             'Quem Indicou': request.form.get('indicacao'),
@@ -72,11 +73,9 @@ def ficha():
 
         buffer = BytesIO()
         p = canvas.Canvas(buffer, pagesize=A4)
-        width, height = A4 # Largura e altura da página A4 em pontos
+        width, height = A4
 
-        # --- Início do Desenho do PDF ---
-
-         # --- Caminho para o Logo ---
+        # --- Caminho para o Logo ---
         logo_path = os.path.join(app.root_path, '..', 'frontend', 'imagens', 'logo.png')
         logo_width = 50 # Ajuste a largura conforme necessário
         logo_height = 40 # Ajuste a altura conforme necessário
@@ -90,16 +89,18 @@ def ficha():
             print(f"Caminho do logo: {logo_path}")
             # Em caso de erro, continua sem o logo
 
-        # Título Principal
+        # --- Título Principal ---
         p.setFont("Helvetica-Bold", 24)
-        p.drawCentredString(width / 2.0, height - 50, "FICHA CADASTRAL")
+        title_y = height - 50 # Ajuste conforme posição do logo
+        p.drawCentredString(width / 2.0, title_y, "FICHA CADASTRAL")
 
-        # Linha separadora
-        p.line(50, height - 70, width - 50, height - 70)
+        # --- Linha separadora ---
+        line_y = title_y - 20 # Ajuste conforme posição do título
+        p.line(50, line_y, width - 50, line_y)
 
-        y_position = height - 100 # Posição Y inicial para os dados
+        y_position = line_y - 30 # Posição Y inicial para os dados
 
-        # Função auxiliar para adicionar blocos de texto
+        # --- Função auxiliar para adicionar blocos de texto ---
         def add_text_block(title, data_dict, start_y):
             nonlocal y_position # Permite modificar y_position da função externa
             y_position = start_y
@@ -108,13 +109,15 @@ def ficha():
             y_position -= 20 # Espaço abaixo do título do bloco
 
             p.setFont("Helvetica", 11)
+            current_x = 60 # Posição X para o início do texto do campo
+
             for label, value in data_dict.items():
                 if value: # Adiciona apenas campos preenchidos
-                    p.drawString(60, y_position, f"{label}: {value}")
+                    p.drawString(current_x, y_position, f"{label}: {value}")
                     y_position -= 15 # Espaço entre as linhas de dados
             y_position -= 20 # Espaço após o bloco
 
-        # Dados Pessoais
+        # --- Chamadas para adicionar os blocos de texto ---
         dados_pessoais_pdf = {
             'Nome': dados_ficha.get('Nome'),
             'CPF': dados_ficha.get('CPF'),
@@ -125,7 +128,6 @@ def ficha():
         }
         add_text_block("Dados Pessoais:", dados_pessoais_pdf, y_position)
 
-        # Endereço
         dados_endereco_pdf = {
             'Endereço': dados_ficha.get('Endereço'),
             'CEP': dados_ficha.get('CEP'),
@@ -135,7 +137,6 @@ def ficha():
         }
         add_text_block("Endereço:", dados_endereco_pdf, y_position)
 
-        # Informações do Seguro
         dados_seguro_pdf = {
             'Modalidade do Seguro': dados_ficha.get('Modalidade do Seguro'),
             'Tipo do Seguro': dados_ficha.get('Tipo do Seguro')
@@ -151,9 +152,11 @@ def ficha():
                 'Ano Modelo': dados_ficha.get('Ano Modelo'),
                 'Placa': dados_ficha.get('Placa'),
                 'Chassi': dados_ficha.get('Chassi'),
-                'Renavam': dados_ficha.get('Renavam')
+                'Renavam': dados_ficha.get('Renavam'),
+                'Classe de Bônus': dados_ficha.get('Classe de Bônus')
             }
-            add_text_block("Detalhes do Seguro Auto:", dados_auto_pdf, y_position) # Reutiliza y_position
+            # A função add_text_block já imprimirá um por linha
+            add_text_block("Detalhes do Seguro Auto:", dados_auto_pdf, y_position)
 
         # Informações Adicionais
         dados_adicionais_pdf = {
@@ -162,17 +165,9 @@ def ficha():
         }
         add_text_block("Informações Adicionais:", dados_adicionais_pdf, y_position)
 
-
-        # Logotipo da Empresa (Exemplo - se tiver um logo na pasta backend/static/images/)
-        # Para incluir uma imagem, você precisaria do caminho absoluto ou servi-la de outra forma.
-        # Por simplicidade, não vamos incluir uma imagem complexa no PDF agora.
-        # Se quiser incluir, precisaria de: p.drawImage(caminho_da_imagem, x, y, width, height)
-
         # Rodapé do PDF
         p.setFont("Helvetica-Oblique", 9)
         p.drawCentredString(width / 2.0, 30, f"Gerado em {dados_ficha.get('Data de Preenchimento')} - Todos os direitos reservados.")
-
-        # --- Fim do Desenho do PDF ---
 
         p.showPage()
         p.save()
